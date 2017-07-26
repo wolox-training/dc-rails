@@ -42,6 +42,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'dotenv-rails', '~> 2.2.1'
+  gem 'rubocop', '~> 0.49.1'
 end
 
 group :development do
