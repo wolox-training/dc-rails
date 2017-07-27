@@ -43,6 +43,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'dotenv-rails', '~> 2.2.1'
   gem 'rubocop', '~> 0.49.1'
+  gem 'slim', '~> 3.0'
+  gem 'sass', '~> 3.5'
 end
 
 group :development do
