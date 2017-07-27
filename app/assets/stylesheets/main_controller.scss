@@ -1,0 +1,107 @@
+// Place all the styles related to the MainController controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-section {
+  align-items: center;
+  border-top: solid 10px $orange;
+  justify-content: center;
+  padding: 40px 0;
+
+ .space-bar {
+   background: linear-gradient($white , $orange , $white);
+   height: 300px;
+   width: 5px;
+ }
+
+ .logo {
+   height: 104px;
+   width: 370px;
+ }
+}
+
+.middle-section {
+  align-items: center;
+  background-color: $gray-bg;
+  justify-content: space-around;
+  padding: 50px 0;
+  position: relative;
+
+  &::before {
+    background: image-url('triangle.png');
+    content: '';
+    height: 12px;
+    position: absolute;
+    top: -12px;
+    width: 100vw;
+  }
+
+  .icon-container {
+    align-items: center;
+    margin: 20px;
+    width: 190px;
+
+    .icon {
+      height: 62px;
+    }
+
+    .icon-title {
+      color: $black;
+      font-weight: bold;
+      line-height: 20px;
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .icon-description {
+      color: $gray;
+      text-align: center;
+    }
+  }
+}
+
+.bottom-section {
+  align-items: center;
+  background-color: $orange;
+  justify-content: center;
+  padding: 32px 0;
+
+  .input-title {
+     color: $white;
+     font-size: 20px;
+     font-weight: bold;
+  }
+
+  .form-container {
+    align-items: center;
+    margin-top: 25px;
+    max-width: 500px;
+    padding: 0 10px;
+    width: 100%;
+
+    .form-input {
+      border-radius: 10px;
+      height: 40px;
+      width: 100%;
+    }
+
+    .form-button {
+      border: solid 1px $white;
+      border-radius: 10px;
+      color: $white;
+      font-size: 20px;
+      height: 40px;
+      margin-top: 25px;
+      width: 150px;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .top-section {
+    flex-wrap: wrap;
+  }
+
+  .space-bar {
+    display: none;
+  }
+}
