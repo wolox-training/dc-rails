@@ -42,6 +42,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'dotenv-rails', '~> 2.2.1'
   gem 'rubocop', '~> 0.49.1'
+  gem 'rspec-rails', '~> 3.5'
   gem 'sass', '~> 3.5'
   gem 'selenium-webdriver'
   gem 'slim', '~> 3.0'
