@@ -5,20 +5,11 @@
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+
 p,
-span,
-label,
 input,
 a,
-button,
-select,
-textarea {
+button {
   color: $black;
   display: inline-block;
   font-size: 15px;
@@ -27,31 +18,7 @@ textarea {
   margin: 0;
 }
 
-h1:focus,
-h2:focus,
-h3:focus,
-h4:focus,
-h5:focus,
-h6:focus,
-p:focus,
-span:focus,
-label:focus,
-input:focus,
-a:focus,
-button:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-}
-
-table {
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
 input,
-select,
-textarea,
 button {
   border: 0;
 }
@@ -71,11 +38,4 @@ a:active,
 a:hover {
   color: $white;
   text-decoration: none;
-}
-
-ul,
-li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
