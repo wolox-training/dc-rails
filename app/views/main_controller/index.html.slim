@@ -1,0 +1,30 @@
+.header.flex.full-width
+  = image_tag 'phone.png', class: 'phone margin-20'
+  .vertical-line.margin-20
+  = image_tag 'tcg_logo.png', class: 'logo margin-20'
+.benefits.flex.full-width
+  .icon-container.flex-column
+    = image_tag 'ic_list.png', class: 'icon'
+    p.icon-title
+      | Keep track of your money
+    p.icon-description
+      | See all you debts and all your friends debts towards you.
+  .icon-container.flex-column
+    = image_tag 'ic_safe.png', class: 'icon'
+    p.icon-title
+      | Generate reminders
+    p.icon-description
+      | Get reminded of who owes you money or who you owe money to.
+  .icon-container.flex-column
+    = image_tag 'ic_reminder.png', class: 'icon'
+    p.icon-title
+      | No internet needed
+    p.icon-description
+      | All your debts are ketp safe in your phone.
+.contact.flex-column.full-width
+  p.input-title
+    | Get info on new updates
+  form.flex-column.form-container
+    input.form-input type='text'
+    button.form-button type='submit'
+      | Subscribe

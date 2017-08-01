@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+p,
+input,
+a,
+button {
+  color: $black;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 14px;
+  margin: 0;
+}
+
+input,
+button {
+  border: 0;
+}
+
+button {
+  background: transparent;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:focus,
+a:active,
+a:hover {
+  color: $white;
+  text-decoration: none;
+}
