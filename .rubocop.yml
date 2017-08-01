@@ -1,5 +1,31 @@
+require: rubocop-rspec
+
+Style/VariableNumber:
+  EnforcedStyle: snake_case
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 5
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
 Documentation:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: False
 
 LineLength:
   Max: 99

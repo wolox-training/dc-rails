@@ -46,6 +46,8 @@ group :development, :test do
   gem 'sass', '~> 3.5'
   gem 'selenium-webdriver'
   gem 'slim', '~> 3.0'
+  gem 'rubocop-rspec', '1.15.0'
+
 end
 
 group :development do
@@ -55,6 +57,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'faker', '~> 1.8'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
