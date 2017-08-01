@@ -1,4 +1,13 @@
 Documentation:
   Enabled: false
-  LineLength:
-    Max: 99
+
+LineLength:
+  Max: 99
+
+AllCops:
+  Exclude:
+    - 'app/authentication/**/*'
+    - 'test/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
