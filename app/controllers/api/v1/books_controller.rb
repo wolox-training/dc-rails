@@ -5,7 +5,9 @@ module Api
         render json: Book.all
       end
 
-      def show; end
+      def show
+        render json: Book.find(params[:id])
+      end
     end
   end
 end
