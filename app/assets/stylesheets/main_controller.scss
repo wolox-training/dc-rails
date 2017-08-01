@@ -4,14 +4,20 @@
   justify-content: center;
   padding: 40px 0;
 
- .vertical-line {
-   background: linear-gradient($white , $orange , $white);
-   height: 300px;
-   width: 5px;
+  .phone {
+    margin: 20px;
+  }
+
+  .vertical-line {
+    background: linear-gradient($white , $orange , $white);
+    height: 300px;
+    margin: 20px;
+    width: 5px;
  }
 
  .logo {
    height: 104px;
+   margin: 20px;
    width: 370px;
  }
 }
@@ -19,6 +25,7 @@
 .benefits {
   align-items: center;
   background-color: $gray-bg;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding: 50px 0;
   position: relative;
