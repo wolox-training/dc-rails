@@ -1,16 +1,13 @@
 require 'rails_helper'
 
 describe User do
-  it { is_expected.to validate_presence_of(:first_name) }
-  it { is_expected.to validate_presence_of(:last_name) }
 
   subject(:user) do
     build(:user)
   end
 
-  it do
-    is_expected.to be_valid
-  end
+  it { is_expected.to validate_presence_of(:first_name) }
+  it { is_expected.to validate_presence_of(:last_name) }
 
   describe '#generate_verification_code' do
     context 'When the user is created' do
