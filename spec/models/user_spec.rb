@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe User do
-
   subject(:user) do
     build(:user)
   end
