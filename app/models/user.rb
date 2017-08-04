@@ -7,6 +7,8 @@ class User < ApplicationRecord
   before_validation :generate_verification_code, on: :create
   validates :first_name, :last_name, :email, presence: true
 
+  has_many :rents, dependent: :delete_all
+
   def generate_verification_code
     self.verification_code = AuthenticableEntity.verification_code
   end
