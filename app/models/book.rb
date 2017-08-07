@@ -5,7 +5,7 @@ class Book < ApplicationRecord
 
   def actual_rent
     rents.where(book_id: id)
-         .find_by!('rents.from <= :current_date AND rents.to >= :current_date',
+         .find_by('rents.from <= :current_date AND rents.to >= :current_date',
                    current_date: Time.zone.today)
   end
 end
