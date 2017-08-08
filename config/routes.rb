@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :users do
         member do
           get 'rents' => "users#rents_index"
-          post 'rents' => "users#rents_create"
+          post 'rents' => "rents#create"
         end
         collection do
           resources :sessions, only: [:create] do
