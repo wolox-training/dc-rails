@@ -5,6 +5,6 @@ FactoryGirl.define do
     image Faker::Internet.url
     title Faker::Book.title
     publisher Faker::Book.publisher
-    year Faker::Date.backward(14)
+    year Faker::Date.backward(14).year
   end
 end

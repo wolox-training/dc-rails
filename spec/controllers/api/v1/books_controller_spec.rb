@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::V1::BooksController do
   include_context 'Authenticated User'
-  include_context 'Response Body'
+  include Response::JSONParser
 
   describe 'GET #index' do
     context 'When fetching all the books' do
@@ -27,9 +27,9 @@ describe Api::V1::BooksController do
   describe 'GET #show' do
     context 'When fetching a user rent' do
       let!(:books) { create_list(:book, 3) }
-
+      let(:book) {books.first}
       before do
-        get :show, params: { id: books[0].id }
+        get :show, params: { id: book.id }
       end
 
       it 'responds with 200 status' do
@@ -37,8 +37,8 @@ describe Api::V1::BooksController do
       end
 
       it 'responses with id books json' do
-        expected = ActiveModel::Serializer::CollectionSerializer.new(
-          books, each_serializer: FullBookSerializer
+        expected = ActiveModel::Serializer.new(
+          book, serializer: FullBookSerializer
         ).to_json
         expect(parsed_response_body.to_json) =~ JSON.parse(expected)
       end
