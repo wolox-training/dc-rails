@@ -27,7 +27,8 @@ describe Api::V1::BooksController do
   describe 'GET #show' do
     context 'When fetching a user rent' do
       let!(:books) { create_list(:book, 3) }
-      let(:book) {books.first}
+      let(:book) { books.first }
+
       before do
         get :show, params: { id: book.id }
       end
