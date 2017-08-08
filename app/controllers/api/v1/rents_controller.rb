@@ -5,6 +5,7 @@ module Api
         new_rent = current_user.rents.build
         new_rent.assign_attributes(rents_params)
         if new_rent.save
+          ModelMailer.new_rent_notification(new_rent).deliver
           head :created
         else
           render json: new_rent.errors.as_json

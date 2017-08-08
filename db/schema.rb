@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802150109) do
+ActiveRecord::Schema.define(version: 20170808180359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170802150109) do
     t.string "publisher", null: false
     t.string "year", null: false
     t.string "description", limit: 60
-    t.datetime "created_at", default: "2017-08-03 15:20:26", null: false
-    t.datetime "updated_at", default: "2017-08-03 15:20:26", null: false
+    t.datetime "created_at", default: "2017-08-02 15:19:36", null: false
+    t.datetime "updated_at", default: "2017-08-02 15:19:36", null: false
   end
 
   create_table "rents", force: :cascade do |t|
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170802150109) do
     t.bigint "book_id"
     t.datetime "from", null: false
     t.datetime "to", null: false
+    t.datetime "created_at", default: "2017-08-08 18:04:59", null: false
+    t.datetime "updated_at", default: "2017-08-08 18:04:59", null: false
     t.index ["book_id"], name: "index_rents_on_book_id"
     t.index ["user_id"], name: "index_rents_on_user_id"
   end

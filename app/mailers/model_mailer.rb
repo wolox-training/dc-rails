@@ -5,9 +5,9 @@ class ModelMailer < ApplicationMailer
   #
   #   en.model_mailer.new_record_notification.subject
   #
-  def new_record_notification
-    @greeting = "Hi"
+  def new_rent_notification(rent)
+    @greeting = rent
 
-    mail to: "to@example.org"
+    mail to: "david.carrillo@wolox.com.ar", subject: "Success! You did it."
   end
 end
