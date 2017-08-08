@@ -27,16 +27,17 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  # config.action_mailer.delivery_method = :smtp
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
-    :address => "smtp.mailgun.org",
+    :address => "smtp.sendgrid.net",
     :port => 587,
-    :domain => "training.wolox.com.ar",
-    :user_name => "no-reply@training.wolox.com.ar",
-    :password => Rails.application.secrets.mailer_domain
+    :domain => "luna.com",
+    :user_name => "luna.amelie",
+    :password => Rails.application.secrets.mailer_domain,
+    :enable_starttls_auto => true
   }
   config.action_mailer.raise_delivery_errors = false
 
