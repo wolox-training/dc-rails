@@ -31,10 +31,10 @@ gem 'turbolinks', '~> 5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise', '~> 4.3'
 gem 'jwt'
 gem 'versionist'
-gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,13 +43,12 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'dotenv-rails', '~> 2.2.1'
-  gem 'rubocop', '~> 0.49.1'
   gem 'rspec-rails', '~> 3.5'
+  gem 'rubocop', '~> 0.49.1'
+  gem 'rubocop-rspec', '1.15.0'
   gem 'sass', '~> 3.5'
   gem 'selenium-webdriver'
   gem 'slim', '~> 3.0'
-  gem 'rubocop-rspec', '1.15.0'
-
 end
 
 group :development do
@@ -63,9 +62,10 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'faker', '~> 1.8'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'faker', '~> 1.8'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git',
+                          branch: 'rails-5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
