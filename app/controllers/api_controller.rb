@@ -49,4 +49,8 @@ class ApiController < ApplicationController
   def render_nothing_bad_req
     head :bad_request
   end
+
+  def set_locale
+    I18n.locale = current_user.locale || I18n.default_locale
+  end
 end

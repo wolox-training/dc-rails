@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   # Hooks
   before_validation :generate_verification_code, on: :create
-  validates :first_name, :last_name, :email, presence: true
+  validates :first_name, :last_name, :email, :locale, presence: true
 
   has_many :rents, dependent: :delete_all
 

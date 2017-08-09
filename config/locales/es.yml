@@ -29,10 +29,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  new_rent: 'New rent created'
-  created_at: 'created_at'
-  title: 'Title'
-  author: 'Author'
-  from: 'From'
-  to: 'To'
+es:
+  new_rent: 'Nueva renta creada'
+  created_at: 'Fecha de creacion'
+  title: 'Titulo'
+  author: 'Autor'
+  from: 'Desde'
+  to: 'Hasta'
