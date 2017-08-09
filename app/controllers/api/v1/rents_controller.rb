@@ -1,6 +1,8 @@
 module Api
   module V1
     class RentsController < ApiController
+      before_action :set_locale
+
       def create
         new_rent = current_user.rents.build
         new_rent.assign_attributes(rents_params)
