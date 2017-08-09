@@ -17,8 +17,8 @@ ActiveAdmin.register Rent do
 
   form do |f|
     f.inputs do
-      f.input :user, :as => :select, :collection => User.all.collect {|user| [user.email] }
-      f.input :book, :as => :select, :collection => Book.all.collect {|book| [book.title] }
+      f.input :user, as: :select, collection: User.all.collect { |user| [user.email] }
+      f.input :book, as: :select, collection: Book.all.collect { |book| [book.title] }
       f.input :from
       f.input :to
     end
