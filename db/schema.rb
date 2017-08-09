@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170802150109) do
     t.string "publisher", null: false
     t.string "year", null: false
     t.string "description", limit: 60
-    t.datetime "created_at", default: "2017-08-02 15:19:36", null: false
-    t.datetime "updated_at", default: "2017-08-02 15:19:36", null: false
+    t.datetime "created_at", default: "2017-08-03 15:20:26", null: false
+    t.datetime "updated_at", default: "2017-08-03 15:20:26", null: false
   end
 
   create_table "rents", force: :cascade do |t|
