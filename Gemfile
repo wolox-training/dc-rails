@@ -52,7 +52,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'letter_opener'
+  gem 'letter_opener', '~> 1.4'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background.
   gem 'spring'

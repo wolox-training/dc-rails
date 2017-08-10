@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe ModelMailer, type: :mailer do
+RSpec.describe RentMailer, type: :mailer do
   describe 'new_rent_notification' do
-    let(:mail) { ModelMailer.new_rent_notification }
+    let(:mail) { RentMailer.new_rent_notification }
 
     it 'renders the headers' do
       expect(mail.subject).to eq('New record notification')

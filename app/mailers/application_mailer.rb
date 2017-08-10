@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@training.wolox.com.ar'
+  mail_from = Rails.application.secrets.default_mail_from
+  default from: mail_from
   layout 'mailer'
 end

@@ -32,11 +32,11 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
-    :address => "smtp.sendgrid.net",
+    :address => Rails.application.secrets.mailer_address,
     :port => 587,
-    :domain => "luna.com",
-    :user_name => "luna.amelie",
-    :password => Rails.application.secrets.mailer_domain,
+    :domain => Rails.application.secrets.mailer_domain,
+    :user_name => Rails.application.secrets.mailer_user,
+    :password => Rails.application.secrets.mailer_password,
     :enable_starttls_auto => true
   }
   config.action_mailer.raise_delivery_errors = false
