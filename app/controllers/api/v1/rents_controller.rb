@@ -6,6 +6,9 @@ module Api
       def create
         new_rent = current_user.rents.build
         new_rent.assign_attributes(rents_params)
+
+        authorize new_rent
+
         if new_rent.save
           RentMailer.new_rent_notification(new_rent).deliver_later
           head :created
