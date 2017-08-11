@@ -6,7 +6,7 @@ describe Api::V1::UsersController do
 
   describe 'GET #rents_index' do
     context 'When get all 26 user rents' do
-      let!(:user_rents) { create_list(:rent, 26, user_id: user.id)}
+      let!(:user_rents) { create_list(:rent, 26, user_id: user.id) }
 
       before do
         get :rents_index, params: { id: user.id }
