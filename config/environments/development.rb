@@ -27,10 +27,21 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
+  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => Rails.application.secrets.mailer_address,
+    :port => 587,
+    :domain => Rails.application.secrets.mailer_domain,
+    :user_name => Rails.application.secrets.mailer_user,
+    :password => Rails.application.secrets.mailer_password,
+    :enable_starttls_auto => true
+  }
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
