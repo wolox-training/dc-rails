@@ -1,17 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe RentMailer, type: :mailer do
+  let (:rent) { build(:rent) }
+
   describe 'new_rent_notification' do
-    let(:mail) { RentMailer.new_rent_notification }
+    let(:mail) { RentMailer.new_rent_notification(rent) }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq('New record notification')
-      expect(mail.to).to eq(['to@example.org'])
-      expect(mail.from).to eq(['from@example.com'])
-    end
-
-    it 'renders the body' do
-      expect(mail.body.encoded).to match('Hi')
+      expect(mail.subject).to eq( 'Success! You did it.' )
+      expect(mail.to).to eq( [rent.user.email] )
+      expect(mail.from).to eq( [Rails.application.secrets.default_mail_from] )
     end
   end
 end
