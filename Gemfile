@@ -35,7 +35,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise', '~> 4.3'
 gem 'jwt'
 gem 'versionist'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 1.1', github: 'activeadmin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
