@@ -1,0 +1,9 @@
+es:
+  rent_mailer:
+    new_rent_notification:
+      new_rent: 'Nueva renta creada'
+      created_at: 'Fecha de creacion'
+      title: 'Titulo'
+      author: 'Autor'
+      from: 'Desde'
+      to: 'Hasta'
