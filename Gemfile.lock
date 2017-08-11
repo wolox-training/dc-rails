@@ -346,7 +346,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
-  activeadmin!
+  activeadmin (~> 1.1)!
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)

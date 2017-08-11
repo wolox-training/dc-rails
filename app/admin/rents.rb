@@ -1,5 +1,5 @@
 ActiveAdmin.register Rent do
-  permit_params :user, :book, :from, :to
+  permit_params :user_id, :book_id, :from, :to
 
   index do
     selectable_column
@@ -17,8 +17,8 @@ ActiveAdmin.register Rent do
 
   form do |f|
     f.inputs do
-      f.input :user, as: :select, collection: User.all.collect { |user| [user.email] }
-      f.input :book, as: :select, collection: Book.all.collect { |book| [book.title] }
+      f.input :user_id, as: :select, collection: User.all.collect { |user| [user.email, user.id] }
+      f.input :book_id, as: :select, collection: Book.all.collect { |book| [book.title, book.id] }
       f.input :from
       f.input :to
     end
