@@ -1,7 +1,6 @@
 module Api
   module V1
     class RentsController < ApiController
-
       def create
         new_rent = current_user.rents.build
         new_rent.assign_attributes(rents_params)
