@@ -27,5 +27,7 @@ Rails.application.routes.draw do
       resources :book_suggestions, only: [:index, :show, :create]
 
   end
+
+  resources :suggestions, only: [:new]
   # ...
 end
