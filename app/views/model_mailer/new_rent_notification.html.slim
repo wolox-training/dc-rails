@@ -1,0 +1,12 @@
+h1
+  = t('new_rent')
+h2
+  | #{ I18n.t 'created_at' } : #{ @greeting.created_at }
+h2
+  | #{ I18n.t 'title' } : #{ @greeting.book.title } 
+h2
+  | #{ I18n.t 'author' } : #{ @greeting.book.author } 
+h2
+  | #{ I18n.t 'from' } : #{ @greeting.from } 
+h2
+  | #{ I18n.t 'to' } : #{ @greeting.to } 
