@@ -16,6 +16,10 @@ describe Api::V1::UsersController do
         expect(response).to have_http_status(:ok)
       end
 
+      it 'responds matches with the default formatter' do
+        expect(parsed_response_body).to be_paginated
+      end
+
       it 'responses with 25 user rents per page' do
         expect(parsed_response_body['count']).to eq(25)
       end
