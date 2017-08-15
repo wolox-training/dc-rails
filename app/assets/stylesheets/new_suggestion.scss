@@ -1,0 +1,31 @@
+.new-form {
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 280px;
+}
+
+.new-form-item {
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+
+  input {
+    border-bottom: 1px solid $gray;
+  }
+
+  select {
+    border-radius: 5px;
+  }
+}
+
+.new-form-bottom {
+  margin-top: 25px;
+  align-self: flex-end;
+
+  input {
+    background-color: $orange;
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+  }
+}
