@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/Wolox/wor-paginate.git
+  revision: 7245b82810ea3f38a7eebdd9409065b8c212ea30
+  branch: feature/updating-railties-dependency
+  specs:
+    wor-paginate (0.1.1)
+      rails (>= 4.0)
+      railties (>= 4.1.0, < 5.2)
+
+GIT
   remote: https://github.com/activeadmin/activeadmin.git
   revision: aa8df80d1b72f33985b66b10081aa2d7da8130bf
   specs:
@@ -382,6 +391,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   versionist
   web-console (>= 3.3.0)
+  wor-paginate!
 
 BUNDLED WITH
    1.15.3

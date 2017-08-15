@@ -30,6 +30,12 @@ Metrics/BlockLength:
 LineLength:
   Max: 99
 
+Style/SafeNavigation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
 AllCops:
   Exclude:
     - 'app/authentication/**/*'
@@ -37,3 +43,5 @@ AllCops:
     - 'db/**/*'
     - 'bin/**/*'
     - 'config/**/*'
+
+  TargetRubyVersion: 2.3
