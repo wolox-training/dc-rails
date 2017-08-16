@@ -1,6 +1,6 @@
 h1
   | New Suggestion
-= form_for @Suggestion, url: {action: "create"}, html: {:class => ['flex-column', 'new-form']} do |f|
+= form_with model: @suggestion, html: {class: ['flex-column', 'new-form'], id: 'suggestion-form'} do |f|
   .flex.new-form-item
     = f.label :title, 'Title'
     = f.text_field :title
@@ -24,35 +24,48 @@ h1
     = f.text_field :price
   .flex.new-form-item
     = f.label :price, 'User'
-    = f.select :user_id, @Users.map{ |u| [u.email, u.id] }
+    = f.select :user_id, @users.map{ |u| [u.email, u.id] }
   .flex.new-form-bottom
     =f.submit
-- if @areSuggestions
-  table
-    tr
-      th
-        | Title
-      th
-        | Author
-      th
-        | Publisher
-      th
-        | Year
-      th
-        | Editorial
-      th
-        | Price
-    -@Suggestions.each do |suggestion|
-      tr
-        td
-          = suggestion.title
-        td
-          = suggestion.author
-        td
-          = suggestion.publisher
-        td
-          = suggestion.year
-        td
-          = suggestion.editorial
-        td
-          = suggestion.price
+table#suggestion-table
+  tr
+    th
+      | Title
+    th
+      | Author
+    th
+      | Publisher
+    th
+      | Link
+    th
+      | Year
+    th
+      | Editorial
+    th
+      | Price
+javascript:
+  $(document).ready(function(){
+    $('#suggestion-form')
+    .on('ajax:success',
+      function(e, data, status, xhr){
+        console.log($('form').serializeArray().length);
+        let formData = $('form').serializeArray().slice(2,9);
+        
+        addSuggestion(formData);
+        showTable();
+      });
+      
+    var showTable = function() {
+      $('#suggestion-table').css("display", "block");
+    };
+    
+    var addSuggestion = function(suggestions) {
+      let newRecord = '<tr>'
+      suggestions.map(function(s){
+        newRecord = `${newRecord}<td>${s.value}</td>`;
+      });
+      newRecord = newRecord + '</tr>';
+      $('#suggestion-table tr:last').after(newRecord);
+    }
+  });
+  
