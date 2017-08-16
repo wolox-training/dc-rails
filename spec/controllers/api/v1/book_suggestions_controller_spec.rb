@@ -6,7 +6,6 @@ describe Api::V1::BookSuggestionsController do
 
   describe 'GET #index' do
     context 'When fetching all the suggestions' do
-      binding.pry
       let!(:suggestion) { create_list(:book_suggestion, 3) }
 
       before do
