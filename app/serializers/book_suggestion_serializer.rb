@@ -1,4 +1,4 @@
-class SuggestionSerializer < ActiveModel::Serializer
+class BookSuggestionSerializer < ActiveModel::Serializer
   attributes :title, :author, :link, :user
 
   has_one :user, serializer: UserSerializer
