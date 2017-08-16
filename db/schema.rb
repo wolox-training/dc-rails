@@ -32,6 +32,20 @@ ActiveRecord::Schema.define(version: 20170811203356) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "book_suggestions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "author", null: false
+    t.string "link", null: false
+    t.string "title", null: false
+    t.string "publisher", null: false
+    t.string "year", null: false
+    t.string "editorial", null: false
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_book_suggestions_on_user_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "genere", null: false
     t.string "author", null: false
@@ -55,18 +69,6 @@ ActiveRecord::Schema.define(version: 20170811203356) do
     t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
-  create_table "suggestions", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "author", null: false
-    t.string "link", null: false
-    t.string "title", null: false
-    t.string "publisher", null: false
-    t.string "year", null: false
-    t.string "editorial", null: false
-    t.integer "price"
-    t.index ["user_id"], name: "index_suggestions_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -88,7 +90,7 @@ ActiveRecord::Schema.define(version: 20170811203356) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "book_suggestions", "users"
   add_foreign_key "rents", "books"
   add_foreign_key "rents", "users"
-  add_foreign_key "suggestions", "users"
 end
