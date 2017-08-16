@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :suggestion do
+  factory :book_suggestion do
     user { create(:user) }
     author Faker::Book.author
     link Faker::Internet.url

@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-describe Api::V1::SuggestionsController do
+describe Api::V1::BookSuggestionsController do
   include_context 'Authenticated User'
   include Response::JSONParser
 
   describe 'GET #index' do
     context 'When fetching all the suggestions' do
-      let!(:suggestion) { create_list(:suggestion, 3) }
+      binding.pry
+      let!(:suggestion) { create_list(:book_suggestion, 3) }
 
       before do
         get :index
@@ -18,7 +19,7 @@ describe Api::V1::SuggestionsController do
 
       it 'responses with all suggestions json' do
         expected = ActiveModel::Serializer::CollectionSerializer.new(
-          suggestion, each_serializer: SuggestionSerializer
+          suggestion, each_serializer: BookSuggestionSerializer
         ).to_json
         expect(parsed_response_body.to_json) =~ JSON.parse(expected)
       end
@@ -27,7 +28,7 @@ describe Api::V1::SuggestionsController do
 
   describe 'GET #show' do
     context 'When fetching a suggestion' do
-      let!(:suggestions) { create_list(:suggestion, 3, user_id: user.id) }
+      let!(:suggestions) { create_list(:book_suggestion, 3, user_id: user.id) }
       let(:suggest) { suggestions.first }
 
       before do
@@ -40,10 +41,9 @@ describe Api::V1::SuggestionsController do
 
       it 'responses with id suggestion json' do
         expected = ActiveModel::Serializer.new(
-          suggest, serializer: SuggestionSerializer
+          suggest, serializer: BookSuggestionSerializer
         ).to_json
         expect(parsed_response_body.to_json) =~ JSON.parse(expected)
-        # binding.pry
       end
     end
   end
