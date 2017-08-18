@@ -16,14 +16,15 @@ module Api
         if suggestion.save
           head :created
         else
-          render json: { errors: suggestion.errors.to_h, status: 	:bad_request}, status: 418
+          render json: { errors: suggestion.errors.to_h, status: :bad_request }, status: 418
         end
       end
 
       private
 
       def book_suggestions_params
-        params.require(:bookSuggestion).permit(:title, :author, :link, :publisher, :year, :editorial, :price, :user_id)
+        params.require(:bookSuggestion)
+              .permit(:title, :author, :link, :publisher, :year, :editorial, :price, :user_id)
       end
     end
   end
