@@ -6,12 +6,11 @@ module Api
       def create
         rent = Rent.new(rents_params)
         authorize rent
-
         rents = CreateRent.call(rents_params)
-        unless rents.success?
-          render json: { error:rents.message }
-        else
+        if rents.success?
           head :created
+        else
+          render json: { error: rents.message }
         end
       end
 
