@@ -151,6 +151,7 @@ GEM
       has_scope (~> 0.6)
       railties (>= 3.2, < 5.2.x)
       responders
+    interactor (3.1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -388,6 +389,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.2.1)
   factory_girl_rails (~> 4.0)
   faker (~> 1.8)
+  interactor (~> 3.0)
   jbuilder (~> 2.5)
   jwt
   letter_opener (~> 1.4)
