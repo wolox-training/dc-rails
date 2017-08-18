@@ -1,6 +1,6 @@
 h1
   | New Suggestion
-= form_with model: @suggestion, html: {class: ['flex-column', 'new-form'], id: 'suggestion-form'} do |f|
+= form_for :bookSuggestion, remote: true, url: '/api/v1/book_suggestions', html: {class: ['flex-column', 'new-form'], id: 'suggestion-form'} do |f|
   .flex.new-form-item
     = f.label :title, 'Title'
     = f.text_field :title
@@ -26,7 +26,7 @@ h1
     = f.label :price, 'User'
     = f.select :user_id, @users.map{ |u| [u.email, u.id] }
   .flex.new-form-bottom
-    =f.submit
+    = f.submit
 table#suggestion-table
   tr
     th
@@ -45,18 +45,22 @@ table#suggestion-table
       | Price
 javascript:
   $(document).ready(function(){
-    $('#suggestion-form')
-    .on('ajax:success',
-      function(e, data, status, xhr){
-        console.log($('form').serializeArray().length);
-        let formData = $('form').serializeArray().slice(2,9);
-        
-        addSuggestion(formData);
+    
+    $("#suggestion-form")
+      .on("ajax:success", function(e, data, status, xhr) {
+        addSuggestion(getFormData());
         showTable();
+      })
+      .on("ajax:error", function(e, xhr, status, error) {
+        console.log(e, xhr, status, error);
       });
-      
+
     var showTable = function() {
       $('#suggestion-table').css("display", "block");
+    };
+    
+    var getFormData = function(){
+      return $('form').serializeArray().slice(2,9);
     };
     
     var addSuggestion = function(suggestions) {

@@ -23,9 +23,9 @@ Rails.application.routes.draw do
       end
 
       resources :books, only: [:index, :show]
-      resources :book_suggestions, only: [:index, :show]
+      resources :book_suggestions, only: [:index, :show, :create]
   end
 
-  resources :book_suggestions, only: [:new, :create]
+  resources :book_suggestions, only: [:new]
   # ...
 end
