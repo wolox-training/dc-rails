@@ -12,9 +12,9 @@ module Api
       end
 
       def isbn
-        book_by_isbn = Book.find_by(isbn: isbn_param['isbn'])
-        if book_by_isbn
-          render json: book_by_isbn, status: :ok, serializer: FullBookSerializer
+        response = HttpService.new({ uri: "https://openlibrary.org/api/books?bibkeys=ISBN:#{isbn_param['isbn']}&format=json&jscmd=data"}).request;
+        if response.code == 200 && JSON.parse(response.body).length > 0
+          render json: JSON.parse(response.body), status: :ok
         else
           head :not_found
         end

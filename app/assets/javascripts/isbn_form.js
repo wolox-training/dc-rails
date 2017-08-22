@@ -4,7 +4,7 @@ $(document).ready(function(){
     showTable();
   })
   .on("ajax:error", function(ev, xhr, status, error) {
-    console.log(e, xhr, status, error);
+    console.log(ev, xhr, status, error);
   });
 
   var showTable = function() {
