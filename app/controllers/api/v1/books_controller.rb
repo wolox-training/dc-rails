@@ -12,8 +12,9 @@ module Api
       end
 
       def isbn
-        response = HttpService.new({ uri: "https://openlibrary.org/api/books?bibkeys=ISBN:#{isbn_param['isbn']}&format=json&jscmd=data"}).request;
-        if response.code == 200 && JSON.parse(response.body).length > 0
+        response = HttpService.new(uri: isbn_uri).request
+
+        if response.code == 200 && !JSON.parse(response.body).empty?
           render json: JSON.parse(response.body), status: :ok
         else
           head :not_found
@@ -24,6 +25,12 @@ module Api
 
       def isbn_param
         params.require(:book).permit(:isbn)
+      end
+
+      def isbn_uri
+        url_base = 'https://openlibrary.org/api/books'
+        url_query = "?bibkeys=ISBN:#{isbn_param['isbn']}&format=json&jscmd=data"
+        url_base + url_query
       end
     end
   end

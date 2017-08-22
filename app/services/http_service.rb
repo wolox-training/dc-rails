@@ -6,10 +6,8 @@ class HttpService
   end
 
   def request
-    begin
-      RestClient.get @uri
-    rescue
-      false
-    end
+    RestClient.get @uri
+  rescue
+    false
   end
 end
