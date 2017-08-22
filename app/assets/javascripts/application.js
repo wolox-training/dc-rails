@@ -13,4 +13,4 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-= require new_book_suggestion
+//= require new_book_suggestion
