@@ -1,3 +1,3 @@
 class BooksController < ApplicationController
-  def isbn;end
+  def isbn; end
 end

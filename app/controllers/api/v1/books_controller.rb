@@ -14,7 +14,7 @@ module Api
       def isbn
         book_by_isbn = Book.find_by(isbn: isbn_param['isbn'])
         if book_by_isbn
-          render json: book_by_isbn , status: :ok, serializer: FullBookSerializer
+          render json: book_by_isbn, status: :ok, serializer: FullBookSerializer
         else
           head :not_found
         end
