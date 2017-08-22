@@ -1,0 +1,45 @@
+h1
+  | New Suggestion
+= form_for :bookSuggestion, remote: true, url: '/api/v1/book_suggestions', html: {class: ['flex-column', 'new-form'], id: 'suggestion-form'} do |f|
+  .flex.new-form-item
+    = f.label :title, 'Title'
+    = f.text_field :title
+  .flex.new-form-item
+    = f.label :author, 'Author'
+    = f.text_field :author
+  .flex.new-form-item
+    = f.label :link, 'Link'
+    = f.text_field :link
+  .flex.new-form-item
+    = f.label :publisher, 'Publisher'
+    = f.text_field :publisher
+  .flex.new-form-item
+    = f.label :year, 'Year'
+    = f.text_field :year
+  .flex.new-form-item
+    = f.label :editorial, 'Editorial'
+    = f.text_field :editorial
+  .flex.new-form-item
+    = f.label :price, 'Price'
+    = f.text_field :price
+  .flex.new-form-item
+    = f.label :price, 'User'
+    = f.select :user_id, @users.map{ |u| [u.email, u.id] }
+  .flex.new-form-bottom
+    = f.submit
+table#suggestion-table
+  tr
+    th
+      | Title
+    th
+      | Author
+    th
+      | Publisher
+    th
+      | Link
+    th
+      | Year
+    th
+      | Editorial
+    th
+      | Price

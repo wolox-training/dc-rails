@@ -4,23 +4,20 @@ module Api
       before_action :set_locale
 
       def create
-        new_rent = current_user.rents.build
-        new_rent.assign_attributes(rents_params)
-
-        authorize new_rent
-
-        if new_rent.save
-          RentMailer.new_rent_notification(new_rent).deliver_later
+        rent = Rent.new(rents_params)
+        authorize rent
+        rents = CreateRent.call(rents_params)
+        if rents.success?
           head :created
         else
-          render json: new_rent.errors.as_json
+          render json: { error: rents.message }
         end
       end
 
       private
 
       def rents_params
-        params.require(:rent).permit(:book_id, :from, :to)
+        params.require(:rent).permit(:user_id, :book_id, :from, :to)
       end
     end
   end
