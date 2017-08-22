@@ -22,10 +22,19 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :books, only: [:index, :show]
+      resources :books, only: [:index, :show] do
+        collection do
+          post :isbn
+        end
+      end
       resources :book_suggestions, only: [:index, :show, :create]
   end
 
   resources :book_suggestions, only: [:new]
-  # ...
+
+  resources :books, only: [:index] do
+    collection do
+      get :isbn
+    end
+  end
 end

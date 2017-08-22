@@ -1,0 +1,6 @@
+= form_for :book, url: '/api/v1/books/isbn', remote: true, html: {class: ['flex-column', 'new-form'], id: 'isbn-form'} do |f|
+  .flex.new-form-item
+    = f.label :title, 'Isbn'
+    = f.text_field :isbn
+  .flex.new-form-bottom
+    = f.submit  value: 'Find Book'
