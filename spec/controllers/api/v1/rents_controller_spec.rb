@@ -14,6 +14,7 @@ describe Api::V1::RentsController do
              params: {
                id: user.id,
                rent: {
+                 user_id: user.id,
                  book_id: book.id,
                  from: Time.zone.now,
                  to: Time.zone.now + 1.day
