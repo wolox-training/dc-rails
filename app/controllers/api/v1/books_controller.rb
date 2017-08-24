@@ -1,7 +1,7 @@
 module Api
   module V1
     class BooksController < ApiController
-      skip_before_action :authenticate_request, :current_user, only: [:isbn]
+      skip_before_action :authenticate_request, :current_user, only: [:isbn, :isbn_status]
 
       def index
         render json: Book.all
@@ -12,12 +12,16 @@ module Api
       end
 
       def isbn
-        response = HttpService.new(uri: isbn_uri).request
+        job_id = ExternalRequestWorker.perform_async(isbn_param[:isbn])
+        render json: { request: job_id }, status: :ok
+      end
 
-        if response.code == 200 && !JSON.parse(response.body).empty?
-          render json: JSON.parse(response.body), status: :ok
+      def isbn_status
+        if Sidekiq::Status::status(job_id_param[:id]) == :complete
+          isbn = ExternalBook.find_by(worker_id: job_id_param[:id])
+          render json: { data: isbn.data }, status: :ok
         else
-          head :not_found
+          render json: { status: Sidekiq::Status::status(job_id_param[:id]) }, status: :bad_request
         end
       end
 
@@ -27,10 +31,8 @@ module Api
         params.require(:book).permit(:isbn)
       end
 
-      def isbn_uri
-        url_base = 'https://openlibrary.org/api/books'
-        url_query = "?bibkeys=ISBN:#{isbn_param['isbn']}&format=json&jscmd=data"
-        url_base + url_query
+      def job_id_param
+        params.require(:worker).permit(:id)
       end
     end
   end
