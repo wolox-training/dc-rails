@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20170823211040) do
 
   create_table "external_books", force: :cascade do |t|
     t.json "data", null: false
-    t.string "worker_id", null: false
     t.string "isbn", null: false
   end
 

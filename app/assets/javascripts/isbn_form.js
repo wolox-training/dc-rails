@@ -35,7 +35,6 @@ $(document).ready(function(){
   }
 
   var addBook = function(bookData) {
-    console.log(bookData);
     let newRecord = `<tr><td>${bookData.title}</td><td>${bookData.subtitle}</td>
     <td>${bookData.authors[0].name}</td><td>${bookData.isbn}</td>
     <td>${bookData.number_of_pages}</td></tr>`;

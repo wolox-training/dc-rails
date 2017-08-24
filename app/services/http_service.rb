@@ -5,7 +5,7 @@ class HttpService
     @uri = params[:uri]
   end
 
-  def get_request
+  def request_get
     response = RestClient.get @uri
     response.body
   rescue

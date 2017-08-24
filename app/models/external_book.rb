@@ -1,4 +1,3 @@
 class ExternalBook < ApplicationRecord
-  validates :data, :isbn, :worker_id, presence: true
-
+  validates :data, :isbn, presence: true
 end

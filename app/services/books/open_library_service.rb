@@ -1,7 +1,8 @@
 module Books
   class OpenLibraryService
     def book_info(isbn)
-      Books::ResponseAdapter.book_info(HttpService.new(uri: base_uri + isbn_query(isbn)).get_request)
+      Books::ResponseAdapter
+        .book_info(HttpService.new(uri: base_uri + isbn_query(isbn)).request_get)
     end
 
     private

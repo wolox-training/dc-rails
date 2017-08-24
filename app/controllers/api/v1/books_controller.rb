@@ -1,7 +1,7 @@
 module Api
   module V1
     class BooksController < ApiController
-      skip_before_action :authenticate_request, :current_user, only: [:isbn, :isbn_status]
+      skip_before_action :authenticate_request, :current_user, only: %i[isbn isbn_status]
 
       def index
         render json: Book.all
@@ -17,11 +17,11 @@ module Api
       end
 
       def isbn_status
-        if Sidekiq::Status::status(job_id_param[:id]) == :complete
-          isbn = ExternalBook.find_by(worker_id: job_id_param[:id])
+        if Sidekiq::Status.status(job_id_param[:id]) == :complete
+          isbn = ExternalBook.find(Sidekiq::Status.get(job_id_param[:id], :external_book_id))
           render json: { data: isbn.data }, status: :ok
         else
-          render json: { status: Sidekiq::Status::status(job_id_param[:id]) }, status: :bad_request
+          render json: { status: Sidekiq::Status.status(job_id_param[:id]) }, status: :bad_request
         end
       end
 
