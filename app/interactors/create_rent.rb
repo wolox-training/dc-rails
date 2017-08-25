@@ -13,11 +13,6 @@ class CreateRent
   private
 
   def rent
-    Rent.new(
-      user_id: context.user_id,
-      book_id: context.book_id,
-      from: context.from,
-      to: context.to
-    )
+    Rent.new(context.params)
   end
 end

@@ -4,9 +4,8 @@ module Api
       before_action :set_locale
 
       def create
-        rent = Rent.new(rents_params)
-        authorize rent
-        rents = CreateRent.call(rents_params)
+        authorize current_user, :create_rent?
+        rents = CreateRent.call(params: rents_params)
         if rents.success?
           head :created
         else
