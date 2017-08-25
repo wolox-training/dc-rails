@@ -7,6 +7,9 @@ class ExternalRequestWorker
       isbn: isbn,
       data: Books::OpenLibraryService.new.book_info(isbn)
     )
-    store external_book_id: external_book.id.to_s
+    if external_book.valid?
+      store external_book_id: external_book.id.to_s
+    else
+      raise external_book.errors.to_s
   end
 end
