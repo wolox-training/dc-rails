@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :books, only: [:index, :show] do
         collection do
           post :isbn
+          post :isbn_status
         end
       end
       resources :book_suggestions, only: [:index, :show, :create]
