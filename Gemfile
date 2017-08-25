@@ -67,6 +67,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'sidekiq', '~> 5.0', '>= 5.0.4'
+  gem 'sidekiq-status', '~> 0.6.0'
 end
 
 group :test do
