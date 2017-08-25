@@ -12,9 +12,10 @@ module Api
       end
 
       def isbn
-        book_by_isbn = Book.find_by(isbn: isbn_param['isbn'])
-        if book_by_isbn
-          render json: book_by_isbn, status: :ok, serializer: FullBookSerializer
+        response = HttpService.new(uri: isbn_uri).request
+
+        if response.code == 200 && !JSON.parse(response.body).empty?
+          render json: JSON.parse(response.body), status: :ok
         else
           head :not_found
         end
@@ -24,6 +25,12 @@ module Api
 
       def isbn_param
         params.require(:book).permit(:isbn)
+      end
+
+      def isbn_uri
+        url_base = 'https://openlibrary.org/api/books'
+        url_query = "?bibkeys=ISBN:#{isbn_param['isbn']}&format=json&jscmd=data"
+        url_base + url_query
       end
     end
   end

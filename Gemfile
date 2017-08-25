@@ -41,6 +41,7 @@ gem 'pundit', '~> 1.1'
 gem 'wor-paginate', git: 'https://github.com/Wolox/wor-paginate.git', branch: 'feature/updating-railties-dependency'
 gem 'omniauth-google-oauth2', '~> 0.5.2'
 gem "interactor", "~> 3.0"
+gem 'rest-client', '~> 2.0', '>= 2.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
